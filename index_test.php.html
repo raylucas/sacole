@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="scle">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SCLE</title>
+
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+    <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body >
+	
+	<!--<div ng-include="'view/menu.html'"></div>-->
+	
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			 <div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" >
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">SCLE</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="restrito"><a href="#">Regras de Pontuação</a></li>
+					<li class="restrito"><a href="consulta.php">Acesso Restrito</a></li>
+				</ul>
+			</div>
+		</div>
+				
+	</nav>
+  
+	<div class="container" ng-controller="MainController">
+		<form method="post" action="operador.php">
+			<div class="row">
+				<div class="col-sm-6 col-md-4" ng-repeat="produto in produtos">
+					<div class="thumbnail">
+						<img src="{{ produto.imagem }}" alt="Pilha" >
+						<div class="caption">
+							<div class="panel panel-primary">
+								<div class="panel-heading"><h2>{{ produto.nome }}</h2></div>
+								<div class="panel-body">
+						
+									<div class="row">
+										<div class="col-md-2 col-sm-2 col-xs-2">
+											<h3>{{ produto.qtd }}</h3>
+										</div>
+									</div>
+								
+									<div class="row">
+										<div class="col-md-2 col-sm-2 col-xs-2">
+											<div class="mais btn btn-primary" role="button" ng-click="mais($index)">+</div>
+										</div>
+							
+										<div class="col-md-2 col-sm-2 col-xs-2">
+											<div class="menos btn btn-danger" role="button" ng-click="menos($index)">-</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="text-right"><button type="submit" name="teste" class="enviar btn btn-primary btn-lg">Enviar</button><div>
+
+			<br />
+		</form>
+			  
+
+	</div>
+
+
+<?php
+function get_post_action($name)
+{
+    $params = func_get_args();
+
+    foreach ($params as $name) {
+        if (isset($_POST[$name])) {
+            return $name;
+        }
+    }
+}
+?>
+		
+
+    <script src="lib/jquery/1.11.3/jquery.js"></script>
+    <script src="lib/bootstrap/bootstrap.min.js"></script>
+	<script src="lib/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/MainController.js"></script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+body {
+	padding-top: 70px; 
+	
+}
+
+.navbar-default{
+	background-color:#337ab7;
+}
+
+.navbar-default .navbar-brand{
+	color:white;
+	font-size:26px;
+}
+
+.navbar-default .navbar-nav>li>a{
+	color:white;
+	font-size:18px;
+
+}
+
+.navbar-default .navbar-toggle{
+	color:white;
+	background-color:white;
+}
+
+.mais{
+	font-size:26px;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+.menos{
+	font-size:27px;
+	padding-left:19px;
+	padding-right:18px;
+}
+
+.enviar{
+	font-size:30px;
+	
+}
